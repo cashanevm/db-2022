@@ -46,28 +46,28 @@ SELECT extract (MONTH FROM created_at) AS "month" FROM cloth WHERE extract (MONT
 SELECT * FROM cloth WHERE full_name LIKE '_a%';
 -- 22 Обрати всі значення елементи з таблиці cloth де full_name має перший сhar g
 SELECT * FROM cloth WHERE full_name LIKE 'g%';
--- 23
+-- 23 Обрати created_at як text з таблиці cloth
 SELECT created_at :: text FROM cloth;
 -- 24 Обрати всі унікальні значення full_name з таблиці cloth
 SELECT DISTINCT full_name FROM cloth;
--- 25
-SELECT * FROM salaries ORDER BY salary;
--- 26
-SELECT * FROM salaries ORDER BY salary DESC;
--- 27
-SELECT * FROM salaries ORDER BY to_date,salary DESC;
--- 28
-SELECT first_name, last_name, salary FROM employees JOIN salaries s ON (e.emp_no = s.emp_no);
--- 29
-SELECT first_name, last_name, salary FROM employees e left JOIN salaries s ON (e.emp_no = s.emp_no);
--- 30
-SELECT first_name, last_name, salary FROM employees e Right JOIN salaries s ON (e.emp_no = s.emp_no);
--- 31
-SELECT first_name, last_name, salary FROM employees e FULL OUTER JOIN salaries s ON (e.emp_no = s.emp_no);
--- 32
-SELECT first_name, last_name, salar FROM employees e JOIN salaries s USING (emp_no);
--- 33
-SELECT DISTINCT e.first_name, e.last_name, e2.last_name FROM employees e JOIN employees e2 ON (e.first_name = e2.last_name);
+-- 25 Обрати всі рядки з таблиці cloth сортовано по full_name
+SELECT * FROM cloth ORDER BY full_name;
+-- 26 Обрати всі рядки з таблиці cloth сортовано по color по DESC
+SELECT * FROM cloth ORDER BY color DESC;
+-- 27 Обрати всі рядки з таблиці cloth сортовано по price, size по DESC
+SELECT * FROM cloth ORDER BY price,size DESC;
+-- 28 Обрати всі значення елементи з таблиці cloth де full_name має другий сhar a
+SELECT full_name, created_at, is_sold FROM cloth JOIN color c ON (e.color = c.id);
+-- 29 Обрати всі рядки з таблиці cloth сортовано по full_name
+SELECT full_name, created_at, is_sold FROM cloth e LEFT JOIN color c ON (e.color = c.id);
+-- 30 Обрати 1,2,3 місяць поля created_at кожного елемента з таблиці cloth з заголовком "month"
+SELECT full_name, created_at, is_sold FROM cloth e Right JOIN color c ON (e.color = c.id);
+-- 31 Обрати всі значення елементи з таблиці cloth де full_name має перший сhar g
+SELECT full_name, created_at, is_sold FROM cloth e FULL OUTER JOIN salaries c ON (e.color = c.id);
+-- 32 Обрати created_at як text з таблиці cloth
+SELECT full_name, created_at, is_sold FROM cloth e JOIN color c USING (color);
+-- 33 Обрати всі значення стовпчика name з таблиці brand із заголовком "Name"
+SELECT DISTINCT e.full_name, e.color, e2.name FROM cloth e JOIN color e2 ON (e.color = e2.id);
 -- 34 Обрати всі значення елементи з таблиці cloth
 SELECT * FROM brand;
 -- 35 Обрати всі значення елементи з таблиці cloth
@@ -201,10 +201,6 @@ SELECT DISTINCT name FROM size;
 -- 99 Обрати всі унікальні значення name з таблиці distributor
 SELECT DISTINCT name FROM distributor;
 -- 100 Обрати всі унікальні значення name з таблиці color
-SELECT DISTINCT name FROM color;
-
-
-
-
+SELECT DISTINCT name FROM color
 
 -- Висновки: В результаті виконання даної лабораторної роботи було створино 100 SQL запитів
