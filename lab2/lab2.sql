@@ -207,7 +207,7 @@ FROM cloth CLOTH
     JOIN brand BRAND ON (CLOTH.brand = BRAND.id)
     JOIN distributor DIST ON (DIST.brand = BRAND.id)
     JOIN color COLOR ON (CLOTH.color = COLOR.id)
-WHERE id<90000
+WHERE CLOTH.id<90000
   AND CLOTH.full_name LIKE 'The%'
   AND CLOTH.created_at BETWEEN '1930-01-01' AND '1971-01-01'
 
