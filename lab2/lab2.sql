@@ -200,7 +200,15 @@ SELECT * FROM color WHERE name LIKE 'g%';
 SELECT DISTINCT name FROM size;
 -- 99 Обрати всі унікальні значення name з таблиці distributor
 SELECT DISTINCT name FROM distributor;
--- 100 Обрати всі унікальні значення name з таблиці color
-SELECT DISTINCT name FROM color
+-- 100 Можна словами розповісти?)
+SELECT concat(CLOTH.full_name, ' size: ', SIZE.name, ' brand: ', BRAND.name, ' distributor: ', DIST.name, ' color: ', COLOR.name) AS "Clothes"
+FROM cloth CLOTH
+    JOIN size SIZE ON (CLOTH.size = SIZE.id)
+    JOIN brand BRAND ON (CLOTH.brand = BRAND.id)
+    JOIN distributor DIST ON (DIST.brand = BRAND.id)
+    JOIN color COLOR ON (CLOTH.color = COLOR.id)
+WHERE id<90000
+  AND CLOTH.full_name LIKE 'The%'
+  AND CLOTH.created_at BETWEEN '1930-01-01' AND '1971-01-01'
 
 -- Висновки: В результаті виконання даної лабораторної роботи було створино 100 SQL запитів
