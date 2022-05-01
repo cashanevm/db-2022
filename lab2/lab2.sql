@@ -56,17 +56,17 @@ SELECT * FROM cloth ORDER BY full_name;
 SELECT * FROM cloth ORDER BY color DESC;
 -- 27 Обрати всі рядки з таблиці cloth сортовано по price, size по DESC
 SELECT * FROM cloth ORDER BY price,size DESC;
--- 28 Обрати всі значення елементи з таблиці cloth де full_name має другий сhar a
+-- 28 Обрати всі значення стовпчиків full_name і created_at і is_sold з таблиці cloth
 SELECT full_name, created_at, is_sold FROM cloth JOIN color c ON (e.color = c.id);
--- 29 Обрати всі рядки з таблиці cloth сортовано по full_name
+-- 29 Обрати всі значення стовпчиків full_name і created_at і is_sold з таблиці cloth без нул значень cloth таблиці
 SELECT full_name, created_at, is_sold FROM cloth e LEFT JOIN color c ON (e.color = c.id);
--- 30 Обрати 1,2,3 місяць поля created_at кожного елемента з таблиці cloth з заголовком "month"
+-- 30 Обрати всі значення стовпчиків full_name і created_at і is_sold з таблиці cloth без нул значень color таблиці
 SELECT full_name, created_at, is_sold FROM cloth e Right JOIN color c ON (e.color = c.id);
--- 31 Обрати всі значення елементи з таблиці cloth де full_name має перший сhar g
+-- 31 Обрати всі значення стовпчиків full_name і created_at і is_sold  з таблиці cloth і color
 SELECT full_name, created_at, is_sold FROM cloth e FULL OUTER JOIN salaries c ON (e.color = c.id);
--- 32 Обрати created_at як text з таблиці cloth
+-- 32 Обрати всі значення стовпчиків full_name і created_at і is_sold  з таблиці cloth
 SELECT full_name, created_at, is_sold FROM cloth e JOIN color c USING (color);
--- 33 Обрати всі значення стовпчика name з таблиці brand із заголовком "Name"
+-- 33 Обрати всі значення стовпчиків full_name і color з таблиці cloth і is_sold з color
 SELECT DISTINCT e.full_name, e.color, e2.name FROM cloth e JOIN color e2 ON (e.color = e2.id);
 -- 34 Обрати всі значення елементи з таблиці cloth
 SELECT * FROM brand;
