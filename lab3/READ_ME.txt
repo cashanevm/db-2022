@@ -4,6 +4,8 @@
 
 Бізнес процес Warehouse(Clothes)
 
+0) відео: https://www.youtube.com/watch?v=hmu0fT-TRY4
+
 1) Link to git project: https://github.com/cashanevm/spring-boot-jdbc-rest-api
 
 2) Main page: http://localhost:8080/back-api/swagger-ui/index.html?configUrl=/back-api/v3/api-docs/swagger-config#/
